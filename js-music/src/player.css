@@ -1,0 +1,59 @@
+.time-grid {
+  position:relative;
+  display: grid;
+  top:0;
+
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+  grid-gap: 0;
+  border:1px solid black;
+}
+.time-grid-draw {
+  position:relative;
+  top:0;
+}
+
+.time-grid-row {
+  
+}
+
+.time-grid-cell {
+  border: 1px solid black;
+  justify-content: center;
+  justify-self: center;
+}
+
+
+
+
+.time-grid line {
+  stroke: #000;
+  stroke-width: 2px;
+}
+
+.time-grid .time-line {
+  stroke: #F00;
+  stroke-width: 2px;
+}
+  
+
+.player {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-rows: 70vh auto 1fr auto;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.note-button {
+  border: 1px solid black;
+  align-self: stretch;
+  justify-self: stretch;
+  
+}
+
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 1em;
+}
