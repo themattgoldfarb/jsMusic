@@ -17,7 +17,7 @@ export interface NoteValue {
 }
 
 export const noteEquals = (note: NoteValue) => (other: NoteValue) => 
-      Math.floor(note.frequency) == Math.floor(other.frequency)
+      Math.floor(note.frequency) === Math.floor(other.frequency)
       && note.name === other.name
       && note.startSixteenth === other.startSixteenth
       && note.duration === other.duration;

@@ -1,5 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Sound, { NoteValue, PlayingState, noteEquals, NoteLength} from "./sound";
+import Button from 'react-bootstrap/Button';
+
 
 import * as d3 from "d3";
 
@@ -110,12 +112,6 @@ function Player() {
     }
   }
 
-  function handleNote(note: NoteValue) {
-    if (!notes.find(noteEquals(note))) {
-      setNotes([...notes, note]);
-    }
-  }
-
   function handlePause() {
     setPlayingState(PlayingState.Paused);
   }
@@ -126,6 +122,7 @@ function Player() {
 
   return (
     <div className="player">
+
       <TimeGrid progress={progress} notes={notes} clickHandler={clickHandler} />
       <div>
         {playingState === PlayingState.Playing ? "Playing" : "Paused"}
@@ -136,21 +133,12 @@ function Player() {
             <button onClick={handlePlay}>Play</button>
             <button onClick={handlePause}>Pause</button>
             <button onClick={handleClear}>Clear</button>
+            <Button variant="primary">Primary</Button>
           </span>
         </div>
       </div>
-    </div>
-  );
-}
 
-function NoteButton({ note, octave, onClick }
-  : { note: NoteValue, octave: number, onClick: (note: NoteValue) => void }) {
-  return (
-    <div className="note-button" onClick={() => onClick({
-      frequency: note.frequency * (2 ** (octave - 2)),
-      name: note.name + octave
-    })} >
-      {note.name + octave}
+
     </div>
   );
 }
