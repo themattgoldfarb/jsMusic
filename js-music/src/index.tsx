@@ -1,17 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import NavMenu from './NavMenu';
+import Player from './player';
+import Generator from './Generator';
 import reportWebVitals from './reportWebVitals';
 
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.css';
+
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Player />,
+  },
+  {
+    path: '/sequencer',
+    element: <Player />,
+  },
+  { 
+    path: '/about',
+    element: <h1>About</h1>
+  },
+  {
+    path: 'generator',
+    element: <Generator />
+  },
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <div className="App">
+      <header className="App-header">
+        <NavMenu />
+
+        <RouterProvider router={router}/>
+      </header>
+    </div>
   </React.StrictMode>
 );
 
